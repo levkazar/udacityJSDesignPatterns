@@ -1,10 +1,13 @@
 (function() {
 
+    const PATH = '../pics/';
+    
     const CAT_PICTURES = [
-        "cutie.jpg",
-        "spy.jpg",
-        "heidiAndHennes.jpg"
-    ]
+        'cutie.jpg',
+        'spy.jpg',
+        'heidiAndHennes.jpg',
+        'shoes.jpg',
+    ];
 
     var catFocusImage;
     var catFocusCounter;
@@ -27,8 +30,8 @@
 
         onListClick() {
             if (Cat.currentIndex !== this.imageIndex) {
-                catFocusImage.src = CAT_PICTURES[this.imageIndex];
-                catFocusImage.addEventListener('click', this.onFocusClick.bind(this));
+                catFocusImage.src = PATH + CAT_PICTURES[this.imageIndex];
+                catFocusImage.onclick = this.onFocusClick.bind(this);
                 Cat.currentIndex = this.imageIndex;
                 catFocusCounter.textContent = this.counter;
             }
@@ -53,7 +56,7 @@
 
         for (var index in CAT_PICTURES) {
             var image = document.createElement('img');
-            image.src = CAT_PICTURES[index];
+            image.src = PATH + CAT_PICTURES[index];
             image.width = 100;
             catList.appendChild(image);
 
@@ -66,6 +69,6 @@
 
         catFocus.appendChild(catFocusImage);
         catFocus.appendChild(catFocusCounter);
-    }
+    };
 
 })();
