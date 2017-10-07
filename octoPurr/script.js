@@ -1,9 +1,12 @@
 (function() {
 
+    const PATH = '../pics/';
+
     const CAT_PICTURES = [
         'cutie.jpg',
         'spy.jpg',
         'heidiAndHennes.jpg',
+        'shoes.jpg',
     ];
 
     class Model {
@@ -32,8 +35,8 @@
         static render () {
             Octopus.getCats().forEach(cat => {
                 let image = document.createElement('img');
-                image.src = CAT_PICTURES[cat.imageIndex];
-                image.width = 100;
+                image.src = PATH + CAT_PICTURES[cat.imageIndex];
+                image.height = 100;
                 this.catList.appendChild(image);
 
                 image.addEventListener('click', (copyCat => {
@@ -60,7 +63,7 @@
         }
 
         static renderImage (cat) {
-            this.catFocusImage.src = CAT_PICTURES[cat.imageIndex];
+            this.catFocusImage.src = PATH + CAT_PICTURES[cat.imageIndex];
             this.catFocusImage.onclick = () => Octopus.onFocusClick(cat);
         }
 
